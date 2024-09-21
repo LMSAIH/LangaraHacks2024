@@ -1,7 +1,7 @@
 export const AllStocksVisualizer = (props) => {
     console.log(props.stocks);
     console.log(props.dispatch);
-    debugger
+
 
 
 

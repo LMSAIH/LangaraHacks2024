@@ -6,7 +6,7 @@ export const StocksContextProvider = (props) => {
     const stocksReducer = (state, action) => {
         switch (action.type) {
             case "TOGGLE_FAVORITE": 
-            debugger
+            
             return {
                 ...state,
                 stocks: state.stocks.map((s, i) => {

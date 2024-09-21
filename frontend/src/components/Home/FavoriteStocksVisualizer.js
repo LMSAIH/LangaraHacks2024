@@ -1,5 +1,5 @@
 export const FavoriteStocksVisualizer = (props) => {
-    debugger
+    
 
     return (
         <div>

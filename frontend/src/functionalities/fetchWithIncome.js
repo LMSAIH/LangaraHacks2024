@@ -33,6 +33,7 @@ export const fetchStocks = async (income, setStocks, setAiRecommend) => {
       }
 
       finalStocks = finalten;
+      console.log(finalten);
     })
     .catch((err) => {
       console.log(err);
@@ -73,9 +74,10 @@ export const fetchStocks = async (income, setStocks, setAiRecommend) => {
     .post("http://localhost:4000/api/aiprompt", requestBody)
     .then((response) => {
       const recommendedData = response.data.aibot;
-      console.log(recommendedData);
-
+      
       const parseStocks = (data) => {
+
+        console.log(data);
         // Split by any whitespace (spaces, newlines, tabs, etc.)
         const stockArray = data.trim().split(/\s+/);
         const result = [];
@@ -85,8 +87,9 @@ export const fetchStocks = async (income, setStocks, setAiRecommend) => {
           const name = stockArray[i]; // Stock symbol
           result.push(name); // Only push the name (omit amount)
         }
-
+        console.log(result);
         return result;
+      
       };
 
       const parseStocksByIA = (data) => {
@@ -103,10 +106,13 @@ export const fetchStocks = async (income, setStocks, setAiRecommend) => {
         return result;
       };
 
+    
       const stockNames = parseStocks(recommendedData);
       const recommendedStocks = parseStocksByIA(recommendedData);
-
+      console.log(stockNames);
+      console.log(finalStocks);
       finalStocks = finalStocks.filter((stock) => stockNames.includes(stock.T));
+     
  
       setStocks(finalStocks);
       setAiRecommend(recommendedStocks);

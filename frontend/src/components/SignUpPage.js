@@ -3,12 +3,12 @@ import axios from 'axios';
 import { useAuthContext } from "../hooks/useAuthContext";
 
 
-export const LoginPage = () => {
+export const SignUpPage = () => {
 
     const { dispatch } = useAuthContext();
 
     const login = async (login, password) => {
-        const response = await axios.post("https://localhost:4000/api/login", {
+        const response = await axios.post("https://localhost:4000/api/signup", {
             login,
             password,
         });
@@ -25,7 +25,7 @@ export const LoginPage = () => {
 
     return (
         <div>
-            <h2>Login page</h2>
+            <h2>Sign up</h2>
             <Formik
                 initialValues={{ login: "", password: "" }}
                 onSubmit={(values, actions) => {

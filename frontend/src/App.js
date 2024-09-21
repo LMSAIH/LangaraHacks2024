@@ -2,18 +2,17 @@ import './components/HomePage.css';
 import './App.css'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import { HomePage } from './components/Home/HomePage';
+import LandingPage from './components/Landing/LandingPage';
 
 function App() {
 
   return (
     <div className="Wrapper">
       <BrowserRouter>
-        <Navbar />
-        <div className='Content'>
-          <Routes>
-            <Route path="/home" element={<HomePage />} />
-          </Routes>
-        </div>
+      <Routes>
+          <Route path="/home" element={<HomePage/>}/>
+          <Route path="/" element={<LandingPage/>}/>
+        </Routes>
       </BrowserRouter>
 
     </div>

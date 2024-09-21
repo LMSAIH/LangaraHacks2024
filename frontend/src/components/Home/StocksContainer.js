@@ -1,7 +1,8 @@
-export const StocksContainer = () => {
+export const StocksContainer = (props) => {
+    
     return (
         <div>
-            
+
         </div>
     )
 }

@@ -7,7 +7,7 @@ export const IncomeForm = (props) => {
             <Formik
               initialValues={{ income: 0 }}
               onSubmit={(values, actions) => {
-               
+                props.setSavings(s => s+ values.income)
               }}
             >
               {props => (

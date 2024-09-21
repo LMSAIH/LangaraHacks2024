@@ -2,6 +2,8 @@ import './components/HomePage.css';
 import './App.css'
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import { HomePage } from './components/Home/HomePage';
+import { LoginPage } from './components/LoginPage';
+import { SignUpPage } from './components/SignUpPage';
 
 function App() {
 
@@ -12,6 +14,8 @@ function App() {
         <div className='Content'>
           <Routes>
             <Route path="/home" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
           </Routes>
         </div>
       </BrowserRouter>

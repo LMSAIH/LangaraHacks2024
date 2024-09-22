@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const { generateMeta } = require("./controllers/aiController");
 const UserRoutes = require("./routes/userRoutes");
+const {requireAuth} = require('./middleware/requireAuth');
 require("dotenv").config();
 
 const app = express();
@@ -15,6 +16,7 @@ app.use((req,res,next) => {
 
 app.use(cors());
 app.use("/api/user/", UserRoutes);
+app.use(requireAuth);
 app.post("/api/aiprompt", generateMeta);
 
 mongoose.connect(process.env.DB_ACCESS)

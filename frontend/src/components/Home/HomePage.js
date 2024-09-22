@@ -2,22 +2,27 @@ import { useEffect, useState } from "react";
 import { useStocksContext } from "../../hooks/useStocksContext";
 import { IncomeForm } from "../Forms/IncomesForm";
 import { StocksContainer } from "./StocksContainer";
-import axios from "axios";
+import Navbar from "./NavBar";
 import { AllStocksVisualizer } from "./AllStocksVisualizer";
 import { FavoriteStocksVisualizer } from "./FavoriteStocksVisualizer";
 import StockTrend from "../Graphs/StockTendGraph";
 import { fetchStocks } from "../../functionalities/fetchWithIncome";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 export const HomePage = () => {
+  const { user } = useAuthContext();
   const { stocks, dispatch } = useStocksContext();
   const [savings, setSavings] = useState(0);
   const [aiRecommend, setAiRecommend] = useState(null);
   const [stocks1, setStocks] = useState(null);
 
   useEffect(() => {
-    fetchStocks(800, setStocks, setAiRecommend).then(() => {
-    });
-  }, []);
+    if (user) {
+        console.log(user);
+        console.log(user.token);
+      fetchStocks(800, setStocks, setAiRecommend, user.token);
+    }
+  }, [user]);
 
   useEffect(() => {
     if (stocks1) {
@@ -30,6 +35,7 @@ export const HomePage = () => {
 
   return (
     <div className="homeWrapper">
+      <Navbar />
       <div>
         Your savings: {savings && savings};
         <IncomeForm setSavings={setSavings} />

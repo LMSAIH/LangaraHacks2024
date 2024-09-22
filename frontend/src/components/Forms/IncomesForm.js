@@ -1,6 +1,13 @@
 import { Formik, Form, Field } from "formik";
 
 export const IncomeForm = (props) => {
+
+  const validateIncome = (income) => {
+    if (income < 0) {
+      return "Income can not be negative";
+    }
+  }
+
   return (
     <div className = "incomeform">
       <h2>Let's get you <span className = "started">started</span></h2>
@@ -11,12 +18,11 @@ export const IncomeForm = (props) => {
           props.setSavings((s) => s = values.income);
         }}
       >
-        {(props) => (
+        {({ errors, touched }) => (
           <Form>
-            <div >
-            $<Field name="income" type="number" placeholder= "1000"></Field>
-            </div>
-            <button type="submit">Go</button>
+            <Field name="income" type="number" validate={validateIncome}></Field>
+            <div className="incomeError">{errors.income}</div>
+            <button type="submit">Submit</button>
           </Form>
         )}
       </Formik>

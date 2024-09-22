@@ -29,7 +29,8 @@
   display: flex;
 }
 
-.login-btn, .signup-btn {
+.login-btn,
+.signup-btn {
   padding: 0.5rem 1rem;
   border: 1px solid transparent;
   cursor: pointer;
@@ -47,14 +48,16 @@
   color: white;
 }
 
-.login-btn:hover, .signup-btn:hover {
+.login-btn:hover,
+.signup-btn:hover {
   opacity: 0.8;
 }
 
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
   .navbar-buttons {
-    display: none; /* Hide buttons on mobile, can add a menu icon later */
+    display: none;
+    /* Hide buttons on mobile, can add a menu icon later */
   }
 
   .navbar {
@@ -114,7 +117,7 @@
 }
 
 .hero-enhance {
-  color:#A3E635
+  color: #A3E635
 }
 
 /* Features Section */
@@ -131,7 +134,7 @@
 
 .feature {
   width: 20%;
-  
+
 }
 
 .feature img {
@@ -265,27 +268,96 @@
   color: #ccc;
 }
 
-.HeroGraph{
-  width:40vw;
+.HeroGraph {
+  width: 40vw;
   background-color: #f0f8ff;
 
 }
 
-.HeroGraph h3{
+.HeroGraph h3 {
   text-align: center;
   font-size: 1.5rem;
 }
 
-.HeroGraph .you{
-  color:#A3E635;
+.HeroGraph .you {
+  color: #A3E635;
   background-color: #333;
-  padding:5px;
+  padding: 5px;
   border-radius: 5px;
 }
-.HeroGraph .inputs{
-  margin:auto;
-  width:fit-content;
+
+.HeroGraph .inputs {
+  margin: auto;
+  width: fit-content;
 }
-.HeroGraph input{
-  width:10%;
+
+.HeroGraph input {
+  width: 10%;
+}
+
+.loginform, .signupform {
+  margin: auto;
+  margin-top: 15%;
+  width: fit-content;
+  font-family: 'Roboto';
+  border-radius: 50px;
+  background: #A0D7D1;
+  box-shadow: 20px 20px 0px #88b7b2,
+    -20px -20px 0px #b8f7f0;
+  padding: 2rem;
+}
+
+.loginform form, .signupform form {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.loginform form label, .signupform form label{
+  font-family: 'Roboto', sans-serif;
+  font-size:1.5rem;
+}
+
+.loginform form input, .signupform form input{
+  background:none;
+  border:none;
+  font-family: 'Roboto', sans-serif;
+  font-size:1.5rem;
+  border-bottom:solid #fff;
+  border-right:solid #fff;
+  margin-top:5%;
+  margin-bottom:5%;
+}
+
+.loginform .formTitle, .signupform .formTitle{
+  font-family: 'Roboto', sans-serif;
+  font-size:2rem;
+  text-align: center;
+}
+
+.loginform .in, .signupform .up{
+  color: #FF6F61;
+}
+
+.loginform button, .signupform button{
+  margin-top:5%;
+  margin-bottom: 5%;
+  background:none;
+  font-family: 'Roboto', sans-serif;
+  font-size:1.5rem;
+  border:solid white;
+  border-radius:5px;
+  transition:0.30s;
+}
+
+.loginform button:hover, .signupform button:hover{
+  background-color: #f0f8ff;
+  color:#777;
+}
+
+.loginform .error, .signupform .error{
+  border-radius: 5px;
+  border-color:#FF6F61;
+  background-color: lightcoral;
+  text-align: center;
 }

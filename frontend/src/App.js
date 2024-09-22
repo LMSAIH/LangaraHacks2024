@@ -3,17 +3,19 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import { HomePage } from './components/Home/HomePage';
 import { LoginPage } from './components/LoginPage';
 import { SignUpPage } from './components/SignUpPage';
+import { useAuthContext } from './hooks/useAuthContext';
 import LandingPage from './components/Landing/LandingPage';
+
 
 function App() {
 
+  const {user} = useAuthContext();
   return (
     <div className="Wrapper">
       <BrowserRouter>
-        <Navbar />
         <div className='Content'>
           <Routes>
-            <Route path="/home" element={<HomePage />} />
+            <Route path="/home" element={user ? <HomePage /> : <LoginPage />}  />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignUpPage />} />
             <Route path = '/' element={<LandingPage />} />
@@ -25,21 +27,5 @@ function App() {
   );
 }
 
-
-export const Navbar = () => {
-  return (
-    <div className='Navbar'>
-      <div className='NavbarLinks'>
-        <Link to='/home'>Home</Link>
-      </div>
-      <div className='NavbarLinks'>
-        <Link to='/login'>Loign</Link>
-      </div>
-      <div className='NavbarLinks'>
-        <Link to='/signup'>SinUp</Link>
-      </div>
-    </div>
-  )
-}
 
 export default App;

@@ -40,18 +40,16 @@ export const HomePage = () => {
     return (
         <div className="homeWrapper">
             <Navbar />
-            <div>
-                Your savings: {savings && savings};
+            <div className = "homeContent">
+                <h1> Your stock <span className = "dashboard">Dashboard</span>. </h1>
                 <IncomeForm setSavings={setSavings} />
-                <StocksContainer />
-                <div>
-                    <div>Our suggested stocks: </div>
+                <div className = "suggestions">
+                    <h3>Our suggested stocks </h3>
                     <div><button onClick={() => {
                         setIsActive1(!isActive1);
-                    }}>Show stocks</button></div>
+                    }}>{isActive1 ? "Hide" : "Show"}</button></div>
                 </div>
                 {isActive1 ? <AllStocksVisualizer stocks={stocks.filter((stocks) => stocks.amount!=0)} dispatch={dispatch} /> : null}
-                <hr />
                 {aiRecommend && <RecommendationsVisualizer aiRecommend={aiRecommend} />}
             </div>
         </div>

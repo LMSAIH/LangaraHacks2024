@@ -1,53 +1,216 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 
-body{
-    margin:0;
+body {
+    margin: 0;
 }
 
-.homeWrapper{
-    display:flex;
+.homeWrapper {
+    display: flex;
     flex-direction: row;
     min-height: 100vh;
-    width:100%;
+    width: 100%;
 }
 
-.Navbar{
-    background-color: #58C9FB;
-    opacity: 0.9;
-    padding:0.5rem;
-    transition:0.3s;
-    width:3%;
+.Navbar {
+    background-color: #333;
+    border-style: 3px solid black;
+    padding: 0.5rem;
+    transition: 0.3s;
+    width: 3%;
+    position: fixed;
+    z-index: 10;
+    margin-right: 3%;
+    height: 100%;
     overflow: hidden;
 }
 
-.NavbarLinks{
-    margin:auto;
-    width:fit-content;
-    margin-top:2rem;
+.NavbarLinks {
+    margin: auto;
+    width: fit-content;
+    margin-top: 2rem;
 }
 
 
-.NavbarLinks svg{
-    fill:black;
-    width:2rem;
-    height:2rem;
+.NavbarLinks svg {
+    fill: white;
+    width: 2rem;
+    height: 2rem;
+    transition: 0.25s;
 }
 
+.Navbar svg:hover {
+    transform: translateY(-5px);
+}
+
+.homeContent {
+    background-color: #F5F5F5;
+    opacity: 0.9;
+    width: 100%;
+}
+
+.homeContent h1 {
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: bold;
+    margin: 0;
+    padding-top: 3%;
+    padding-bottom: 0%;
+
+}
+
+.incomeform {
+    width: fit-content;
+    margin: auto;
+}
+
+
+.homeContent .dashboard {
+    background: #FF6F61;
+    background: linear-gradient(to right, #FF6F61 0%, #AF95F8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.incomeform {
+    margin-top: 5%;
+    border-radius: 31px;
+    background: linear-gradient(145deg, #fff, #fff5);
+    box-shadow: 32px 32px 0px #FF6F61,
+        -32px -32px 0px #AF95F8;
+    padding: 3rem;
+    border: solid;
+    font-family: 'Roboto';
+
+}
+
+.incomeform .started {
+    background-color: #58C9FB;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.incomeform h3 {
+    text-align: center;
+}
+
+.incomeform form>div {
+    font-family: 'Roboto';
+    font-size: 1.4rem;
+
+}
+
+.incomeform form input {
+    font-family: 'Roboto';
+    font-size: 1.4rem;
+    background: none;
+    border: none;
+    border-bottom: solid 2px black;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.incomeform form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.incomeform form button {
+    background: none;
+    border: none;
+    font-family: 'Roboto';
+    font-size: 1.8rem;
+    background: none;
+    border-bottom: solid black;
+    border-right: solid black;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.incomeform form button:hover {
+    background-color: #58C9FB;
+}
+
+.suggestions {
+    width: fit-content;
+    margin: auto;
+    margin-top: 5%;
+    font-family: 'Roboto';
+}
+
+.suggestions h3 {
+    color: black;
+    font-size: 2rem;
+
+}
+
+.suggestions>div {
+    margin: auto;
+    width: fit-content;
+}
+
+.suggestions button {
+    background: none;
+    border: none;
+    font-family: 'Roboto';
+    font-size: 1.8rem;
+    border: solid;
+    border-radius: 5px;
+    transition: 0.5s;
+    margin-bottom: 2rem;
+}
+
+.suggestions button:hover {
+    border-color: #AF95F8;
+
+}
 
 .AllStocks {
     animation: myAnim 1s ease 0s 1 normal forwards;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: white;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
-    background-color: rgb(0, 0, 0);
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    row-gap: 2rem;
 }
 
 .AllStocksItem {
+    width: 40%;
+    background-color: #333;
+    border: 3px solid black;
+    border-radius: 2rem;
+    padding: 2rem;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    padding: 2%;    
+
+}
+
+.AllStocksItem .stockGraph {
+    margin: auto;
+}
+
+.AllStocksItem .stockGraph h3 {
+    text-align: center;
+}
+
+.AllStocksItem .up {
+    fill: green;
+    width: 2rem;
+    height: 2rem;
+}
+
+.AllStocksItem .down {
+    fill: red;
+    width: 2rem;
+    height: 2rem;
 }
 
 .AllStocksAmount {
@@ -59,6 +222,8 @@ body{
 .AllStocksName {
     font-weight: bold;
     flex: 0 0 90%;
+    color: #A3E635;
+    font-size: 3rem;
 }
 
 .AllStocksVolume {
@@ -71,9 +236,9 @@ body{
     flex: 0 0 10%;
     --false: #E81B1B;
     --true: #009068;
-   }
-   
-   .AllStocksSwitcher input[type=checkbox] {
+}
+
+.AllStocksSwitcher input[type=checkbox] {
     appearance: none;
     height: 1rem;
     width: 1.75rem;
@@ -81,9 +246,9 @@ body{
     position: relative;
     border-radius: .2em;
     cursor: pointer;
-   }
-   
-   .AllStocksSwitcher input[type=checkbox]::before {
+}
+
+.AllStocksSwitcher input[type=checkbox]::before {
     content: '';
     display: block;
     height: 0.95em;
@@ -95,54 +260,101 @@ body{
     background-color: var(--false);
     border-radius: .2em;
     transition: .3s ease;
-   }
-   
-   .AllStocksSwitcher input[type=checkbox]:checked::before {
+}
+
+.AllStocksSwitcher input[type=checkbox]:checked::before {
     background-color: var(--true);
     left: calc(100% - (1.9em/2 + .3em));
-   }
+}
+
+.recommendedStocks {
+    margin: auto;
+    width: fit-content;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.recommendedStocks .rStocks{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 2rem;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+}
+
+.recommendedStocks .rStocks .name{
+    color:#A3E635;
+    font-size:3rem;
+    font-family: 'roboto';
+}
+
+.recommendedStocks .rStocks .amount{
+   color:white;
+    font-size:1.5rem;
+    font-family: 'roboto';
+}
+
+.recommendedStocks h3 {
+    font-size: 3rem;
+    font-family: 'roboto';
+    text-align: center;
+}
+
+.recommendedStocks .infoContainer{
+    border-radius: 20px;
+    padding:3rem;
+    background: linear-gradient(145deg, #373737, #2e2e2e);
+    box-shadow: 5px 5px 0px #141414,
+        -5px -5px 0px #525252;
+        color:white;
+    
+    
+}
 
 
-   @keyframes myAnim {
-	0% {
-		animation-timing-function: ease-in;
-		opacity: 0;
-		transform: translateY(-250px);
-	}
 
-	38% {
-		animation-timing-function: ease-out;
-		opacity: 1;
-		transform: translateY(0);
-	}
 
-	55% {
-		animation-timing-function: ease-in;
-		transform: translateY(-65px);
-	}
+@keyframes myAnim {
+    0% {
+        animation-timing-function: ease-in;
+        opacity: 0;
+        transform: translateY(-250px);
+    }
 
-	72% {
-		animation-timing-function: ease-out;
-		transform: translateY(0);
-	}
+    38% {
+        animation-timing-function: ease-out;
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-	81% {
-		animation-timing-function: ease-in;
-		transform: translateY(-28px);
-	}
+    55% {
+        animation-timing-function: ease-in;
+        transform: translateY(-65px);
+    }
 
-	90% {
-		animation-timing-function: ease-out;
-		transform: translateY(0);
-	}
+    72% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+    }
 
-	95% {
-		animation-timing-function: ease-in;
-		transform: translateY(-8px);
-	}
+    81% {
+        animation-timing-function: ease-in;
+        transform: translateY(-28px);
+    }
 
-	100% {
-		animation-timing-function: ease-out;
-		transform: translateY(0);
-	}
+    90% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+    }
+
+    95% {
+        animation-timing-function: ease-in;
+        transform: translateY(-8px);
+    }
+
+    100% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+    }
 }

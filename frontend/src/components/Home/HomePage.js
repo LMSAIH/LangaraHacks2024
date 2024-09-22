@@ -12,42 +12,35 @@ import "./Home.css"
 
 
 export const HomePage = () => {
-  const { user } = useAuthContext();
-  const { stocks, dispatch } = useStocksContext();
-  const [savings, setSavings] = useState(0);
-  const [aiRecommend, setAiRecommend] = useState(null);
-  const [stocks1, setStocks] = useState(null);
+    const [isActive1, setIsActive1] = useState(false);
+    const { user } = useAuthContext();
+    const { stocks, aiRecommend, dispatch } = useStocksContext();
+    const [savings, setSavings] = useState(0);
+    const [aiRecommend1, setAiRecommend] = useState(null);
+    const [stocks1, setStocks] = useState(null);
 
-  useEffect(() => {
-    if (user) {
-        console.log(user);
-        console.log(user.token);
-      fetchStocks(800, setStocks, setAiRecommend, user.token);
-    }
-  }, [user]);
+    useEffect(() => {
+        if (user) {
+            fetchStocks(savings, setStocks, setAiRecommend, user.token);
+        }
+    }, [user]);
 
     useEffect(() => {
         console.log(aiRecommend1);
         console.log(stocks1);
-
-        if (savings > 100) {
+        if (savings > 100 && user) {
             dispatch({ type: "SET_RECCOMENDATIONS", payload: aiRecommend1 });
-
             dispatch({ type: "SET_STOCKS", payload: stocks1 });
 
-
-            console.log("HERE")
-            console.log(aiRecommend)
-
         }
-    }, [stocks1, aiRecommend1]);
+    }, [stocks1, aiRecommend1, user]);
 
 
 
     return (
         <div className="homeWrapper">
             <Navbar />
-      <div>
+            <div>
                 Your savings: {savings && savings};
                 <IncomeForm setSavings={setSavings} />
                 <StocksContainer />

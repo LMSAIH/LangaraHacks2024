@@ -153,7 +153,7 @@ const HeroGraph = () => {
     <div className="HeroGraph">
       <h3>
         {" "}
-        We care about <span className="you">you.</span>
+        We care about <span className="you">you</span>
       </h3>
       {data ? <Line options={options} data={data} /> : <p>Loading chart...</p>}
       <div className="inputs">

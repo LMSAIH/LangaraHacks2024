@@ -1,45 +1,46 @@
-import { Formik, Form, Field } from "formik";
 import axios from 'axios';
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 
 export const LoginPage = () => {
 
-    const { dispatch } = useAuthContext();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const {dispatch} = useAuthContext();
+    const navigate = useNavigate();
 
-    const login = async (login, password) => {
-        const response = await axios.post("https://localhost:4000/api/login", {
-            login,
-            password,
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        setIsLoading(true);
+        axios.post('http://localhost:4000/api/user/login', {email, password})
+        .then((response) => {
+            localStorage.setItem('user', JSON.stringify(response.data));
+            setIsLoading(false);
+            dispatch({type: 'LOGIN', payload: response.data});
+            navigate('/home');
+        })
+        .catch((err) => {
+            setError(err.response.data.error);
+            setIsLoading(false);
         });
 
-        //add some kind of validation for response
-        dispatch({
-            type: "LOGIN", payload: {
-                login,
-                password
-            }
-        })
     }
 
-
     return (
-        <div>
-            <h2>Login page</h2>
-            <Formik
-                initialValues={{ login: "", password: "" }}
-                onSubmit={(values, actions) => {
-                    login(values.login, values.password)
-                }}
-            >
-                {(props) => (
-                    <Form>
-                        <Field name="login" type="textarea" />
-                        <Field name="password" type="textarea" />
-                        <button type="submit">Submit</button>
-                    </Form>
-                )}
-            </Formik>
+        <div className = "loginform">
+            <h4 className = "formTitle">Log<span className = "in">In</span></h4>
+            <form onSubmit = {handleSubmit}> 
+                <label>Email </label>
+                <input type = "email" onChange={(e)=>{setEmail(e.target.value)}} name="email" value={email}></input> 
+                <label>Password </label>
+                <input type = "password" onChange={(e)=>{setPassword(e.target.value)}} name="password" value={password}></input> 
+                <button disabled = {isLoading} className = "submitBtn"> LogIn </button>
+                {error && <div className = "error"> {error} </div>}
+            </form>
         </div>
-    )
+      );
 }

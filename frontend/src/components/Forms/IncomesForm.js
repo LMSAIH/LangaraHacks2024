@@ -1,13 +1,14 @@
 import {Formik, Form, Field} from 'formik'
 
 export const IncomeForm = (props) => {
+
     return (
           <div>
             <h1>Enter your incomes</h1>
             <Formik
               initialValues={{ income: 0 }}
               onSubmit={(values, actions) => {
-               
+               props.setSavings(values.income)
               }}
             >
               {props => (

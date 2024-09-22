@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+.AllStocks {
+    animation: myAnim 1s ease 0s 1 normal forwards;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+}
+
+.AllStocksItem {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2%;    
+}
+
+.AllStocksAmount {
+    text-align: flex-end;
+    margin-left: auto;
+    flex: 0 0 10%;
+}
+
+.AllStocksName {
+    font-weight: bold;
+    flex: 0 0 90%;
+}
+
+.AllStocksVolume {
+    color: rgb(123, 123, 123);
+    flex: 0 0 90%;
+}
+
+.AllStocksSwitcher {
+    margin-left: auto;
+    flex: 0 0 10%;
+    --false: #E81B1B;
+    --true: #009068;
+   }
+   
+   .AllStocksSwitcher input[type=checkbox] {
+    appearance: none;
+    height: 1rem;
+    width: 1.75rem;
+    background-color: #fff;
+    position: relative;
+    border-radius: .2em;
+    cursor: pointer;
+   }
+   
+   .AllStocksSwitcher input[type=checkbox]::before {
+    content: '';
+    display: block;
+    height: 0.95em;
+    width: 0.95em;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: calc(1.9em/2 + .3em);
+    background-color: var(--false);
+    border-radius: .2em;
+    transition: .3s ease;
+   }
+   
+   .AllStocksSwitcher input[type=checkbox]:checked::before {
+    background-color: var(--true);
+    left: calc(100% - (1.9em/2 + .3em));
+   }
+
+
+   @keyframes myAnim {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 0;
+		transform: translateY(-250px);
+	}
+
+	38% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	55% {
+		animation-timing-function: ease-in;
+		transform: translateY(-65px);
+	}
+
+	72% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	81% {
+		animation-timing-function: ease-in;
+		transform: translateY(-28px);
+	}
+
+	90% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	95% {
+		animation-timing-function: ease-in;
+		transform: translateY(-8px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+}

@@ -5,59 +5,110 @@ export const StocksContext = createContext();
 export const StocksContextProvider = (props) => {
     const stocksReducer = (state, action) => {
         switch (action.type) {
-            case "TOGGLE_FAVORITE": 
-            
-            return {
-                ...state,
-                stocks: state.stocks.map((s, i) => {
-                    if (i == action.payload.id) {
+            case "SET_STOCKS":
+                return {
+                    ...state,
+                    stocks: action.payload.map(s => {
                         return {
-                            name: s.name,
-                            amount: s.amount,
-                            favorite: action.payload.favorite
+                            name: s.T,
+                            volume: s.v,
+                            price: s.o,
+                            max: s.h,
+                            min: s.l,
+                            favorite: false
                         }
-                    
-                    } else return s
-                }),
-            };
-            default: 
+                    })
+                }
+            case "TOGGLE_FAVORITE":
+                return {
+                    ...state,
+                    aiRecommend: state.aiRecommend.map((r, i) => {
+                        if (i == action.payload.id) {
+                            return {
+                                name: r.name,
+                                amount: r.amount,
+                                favorite: action.payload.favorite
+                            }
+                        } else return r;
+                    }),
+                    stocks: state.stocks.map((s, i) => {
+                        if (i == action.payload.id) {
+                            return {
+                                name: s.name,
+                                volume: s.vokume,
+                                price: s.price,
+                                max: s.max,
+                                min: s.min,
+                                favorite: action.payload.favorite
+                            }
+                        } else return s;
+                    }),
+                };
+            case "SET_RECCOMENDATIONS" :
+                debugger
+                return {
+                    ...state,
+                    aiRecommend: action.payload.map(r => {
+                        return {
+                            name: r.name,
+                            amount: r.amount,
+                            favorite: false
+                        }
+                    })
+                };
+            default:
                 return state;
         }
-    } 
+    }
 
     const [state, dispatch] = useReducer(stocksReducer, {
-        stocks: [ {
-            name: "Apple",
-            amount: 100,
-            favorite: false
+        stocks: [{
+            name: "APPL",
+            volume: 100,
+            price: 101,
+            max: 102,
+            min: 99,
+            avorite: false
         },
         {
-            name: "Samsung",
-            amount: 200,
-            favorite: false
+            name: "SAMS",
+            volume: 200,
+            price: 201,
+            max: 202,
+            min: 199,
+            avorite: false
         },
         {
-            name: "Lenovo",
-            amount: 300,
-            favorite: false
+            name: "NVID",
+            volume: 300,
+            price: 301,
+            max: 302,
+            min: 299,
+            avorite: false
         },
-        {
-            name: "Huawei",
-            amount: 400,
-            favorite: true
-        },
-    ]
+        ],
+        aiRecommend: [
+            {
+                name: "Apple",
+                amount: 3,
+                favorite: false
+            },
+            {
+                name: "Nvidia",
+                amount: 11,
+                favorite: false
+            }
+        ]
     })
 
-    useEffect(()=>{
+    useEffect(() => {
 
     }, [])
 
     return (
-        <StocksContext.Provider value = {{...state, dispatch}}>
+        <StocksContext.Provider value={{ ...state, dispatch }}>
             {props.children}
         </StocksContext.Provider>
     )
 
 }
- 

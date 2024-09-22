@@ -21,7 +21,6 @@ ChartJS.register(
 );
 
 const StockTrend = ({ stock }) => {
-  console.log(stock);
   const open = stock.o;
   const close = stock.c;
   const color = () => {

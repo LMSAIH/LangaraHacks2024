@@ -7,7 +7,6 @@ export const fetchStocks = async (income, setStocks, setAiRecommend) => {
   await axios
     .get(`https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/2023-09-21?adjusted=true&apiKey=xh41fiVsvvdpv14Ef1zbZerGM75xM5X1`)
     .then((unsortedStocks) => {
-      console.log(unsortedStocks);
       let chosenStocks = [];
       unsortedStocks.data.results.map((stock) => {
         if (stock.v >= 10000000) {
@@ -33,7 +32,6 @@ export const fetchStocks = async (income, setStocks, setAiRecommend) => {
       }
 
       finalStocks = finalten;
-      console.log(finalten);
     })
     .catch((err) => {
       console.log(err);
@@ -59,8 +57,7 @@ export const fetchStocks = async (income, setStocks, setAiRecommend) => {
 
   const stocksString = createStocks();
   const stockPricesString = createStocksPrices();
-  console.log(stocksString);
-  console.log(stockPricesString);
+
 
   const requestBody = {
     message: {
@@ -76,8 +73,6 @@ export const fetchStocks = async (income, setStocks, setAiRecommend) => {
       const recommendedData = response.data.aibot;
       
       const parseStocks = (data) => {
-
-        console.log(data);
         // Split by any whitespace (spaces, newlines, tabs, etc.)
         const stockArray = data.trim().split(/\s+/);
         const result = [];
@@ -87,7 +82,6 @@ export const fetchStocks = async (income, setStocks, setAiRecommend) => {
           const name = stockArray[i]; // Stock symbol
           result.push(name); // Only push the name (omit amount)
         }
-        console.log(result);
         return result;
       
       };
@@ -109,8 +103,6 @@ export const fetchStocks = async (income, setStocks, setAiRecommend) => {
     
       const stockNames = parseStocks(recommendedData);
       const recommendedStocks = parseStocksByIA(recommendedData);
-      console.log(stockNames);
-      console.log(finalStocks);
       finalStocks = finalStocks.filter((stock) => stockNames.includes(stock.T));
      
  

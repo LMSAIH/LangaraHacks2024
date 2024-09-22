@@ -1,17 +1,20 @@
-export const FavoriteStocksVisualizer = (props) => {
+export const RecommendationsVisualizer = (props) => {
+
+    console.log(props.aiRecommend)
     
 
     return (
         <div>
-            {props.stocks.map((stock, id) => {
-                if (stock.favorite) {
+            <h3>Our ai reccomends to invest money in following ways:</h3>
+            {props.aiRecommend.map((r, id) => {
+                if (r.favorite) {
                     return (
                         <div>
                         <div>
-                            Name: {stock.name}
+                            Name: {r.name}
                         </div>
                         <div>
-                            Amount: {stock.amount}
+                            Amount: {r.amount}
                         </div>
                         <hr/>
                     </div>

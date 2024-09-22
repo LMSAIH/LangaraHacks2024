@@ -1,32 +1,36 @@
+
 export const AllStocksVisualizer = (props) => {
-    console.log(props.stocks);
-    console.log(props.dispatch);
-
-
-
 
     return (
         <div>
-            <h3>All stocks that are popular now</h3>
-            {
-                props.stocks.map((stock, id) => <div>
-                    <div>
-                        Name: {stock.name}
-                    </div>
-                    <div>
-                        Amount: {stock.amount}
-                    </div>
-                    <div onClick={ () => {
-                        props.dispatch({type: "TOGGLE_FAVORITE", payload: {
-                            id: id,
-                            favorite: !stock.favorite
-                        }})
-                    }}>
-                        Dispalay: {stock.favorite ? "Yes" : "No"}
-                    </div>
-                    <hr/>
-                </div>)
-            }
+            <div className="AllStocks">
+                {
+
+                    props.stocks.map((stock, id) => <div className="AllStocksItem">
+                        <div className="AllStocksName">
+                            {stock.name}
+                        </div>
+                        <div className="AllStocksAmount">
+                            {stock.price}$
+                        </div>
+                        <div className="AllStocksVolume">
+                            {stock.volume} stocks
+                        </div>
+                        <div className="AllStocksSwitcher">
+                            <input type="checkbox" checked={stock.favorite}
+                                onClick={() => {
+                                    props.dispatch({
+                                        type: "TOGGLE_FAVORITE", payload: {
+                                            id: id,
+                                            favorite: !stock.favorite
+                                        }
+                                    })
+                                }}></input>
+                        </div>
+                    </div>)
+                }
+            </div>
         </div>
+
     )
 }

@@ -2,8 +2,9 @@ import { Formik, Form, Field } from "formik";
 
 export const IncomeForm = (props) => {
   return (
-    <div>
-      <h1>Enter your incomes</h1>
+    <div className = "incomeform">
+      <h2>Let's get you <span className = "started">started</span></h2>
+      <h3> Savings to allocate </h3>
       <Formik
         initialValues={{ income: 0 }}
         onSubmit={(values, actions) => {
@@ -12,8 +13,10 @@ export const IncomeForm = (props) => {
       >
         {(props) => (
           <Form>
-            <Field name="income" type="number"></Field>
-            <button type="submit">Submit</button>
+            <div >
+            $<Field name="income" type="number" placeholder= "1000"></Field>
+            </div>
+            <button type="submit">Go</button>
           </Form>
         )}
       </Formik>

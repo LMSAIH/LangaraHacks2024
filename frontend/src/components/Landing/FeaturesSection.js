@@ -5,6 +5,7 @@ import f3 from './images/feat3.png';
 import f4 from './images/feat4.png';
 
 const FeaturesSection = () => {
+  
   return (
     <section className="features-section">
       <h2>Features</h2>

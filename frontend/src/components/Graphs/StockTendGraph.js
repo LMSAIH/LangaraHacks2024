@@ -22,8 +22,8 @@ ChartJS.register(
 
 const StockTrend = ({ stock }) => {
   console.log(stock);
-  const open = stock.open;
-  const close = stock.close;
+  const open = stock.o;
+  const close = stock.c;
   const color = () => {
     if (open > close) {
       return "rgba(255,0,0,0.9)";
@@ -37,13 +37,13 @@ const StockTrend = ({ stock }) => {
     datasets: [
       {
         label: "Open",
-        data: [12],
-        backgroundColor: "rgba(255,0,0,0.9)", // Color for Dataset 1
+        data: [open],
+        backgroundColor: color, // Color for Dataset 1
       },
       {
         label: "Close",
-        data: [5],
-        backgroundColor: "rgba(255,0,0,0.9)", // Color for Dataset 2
+        data: [close],
+        backgroundColor: color, // Color for Dataset 2
       },
     ],
   };

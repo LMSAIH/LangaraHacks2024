@@ -5,7 +5,7 @@ const generateMeta = async (req, res) => {
   const stockPrices = req.body.message.stockPrices;
   const income = req.body.income;
   const description = await openai.chat.completions.create({
-    model: "gpt-4-turbo",
+    model: "gpt-3.5-turbo",
     messages: [
       {
         role: "user",
@@ -14,7 +14,7 @@ const generateMeta = async (req, res) => {
         if, for instance you receive AAPL TSLA and then 100 349, that means AAPL costs 100 per stock and TSLA costs 349. 
         According to my budget, answer only with the stocks that I can afford in the same format I write them. The stocks are: ${stocks}, the prices are: ${stockPrices}. Dont explain your reasoning 
         and just send me the stocks you choose, followed by the amount of shares I should buy. Nothing but the amount of share should follow the stocknames,
-        all the stocks summed must be below the income. Only choose the ones you think have the best value best on their general reputation.`,
+        all the stocks summed must be below the income. Only choose the ones you think have the best value best on their general reputation. Do not include line breaks`,
       },
     ],
     max_tokens: 100,

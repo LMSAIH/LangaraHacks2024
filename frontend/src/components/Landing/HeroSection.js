@@ -1,4 +1,5 @@
 import React from 'react';
+import HeroGraph from './HeroGraph'
 
 const HeroSection = () => {
   return (
@@ -9,7 +10,7 @@ const HeroSection = () => {
         <button className="cta-button">Get Started</button>
       </div>
       <div className="hero-image">
-        <img src="path_to_hero_image.png" alt="Financial planning" />
+        <HeroGraph />
       </div>
     </section>
   );

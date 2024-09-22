@@ -318,10 +318,11 @@
   width: fit-content;
   font-family: 'Roboto';
   border-radius: 50px;
-  background: #A0D7D1;
-  box-shadow: 20px 20px 0px #88b7b2,
-    -20px -20px 0px #b8f7f0;
+  background: #F5F5F5;
+  box-shadow: 20px 20px 0px #AF95F8,
+    -20px -20px 0px #FF6F61;
   padding: 2rem;
+  border: solid black;
 }
 
 .loginform form, .signupform form {
@@ -340,8 +341,8 @@
   border:none;
   font-family: 'Roboto', sans-serif;
   font-size:1.5rem;
-  border-bottom:solid #fff;
-  border-right:solid #fff;
+  border-bottom:solid #000000;
+  border-right:solid #000000;
   margin-top:5%;
   margin-bottom:5%;
 }

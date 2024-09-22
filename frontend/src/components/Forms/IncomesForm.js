@@ -20,7 +20,9 @@ export const IncomeForm = (props) => {
       >
         {({ errors, touched }) => (
           <Form>
-            <Field name="income" type="number" validate={validateIncome}></Field>
+            <div>
+            $<Field name="income" type="number" validate={validateIncome} placeholder={1000}></Field>
+            </div>
             <div className="incomeError">{errors.income}</div>
             <button type="submit">Submit</button>
           </Form>

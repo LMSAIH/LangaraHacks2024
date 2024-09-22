@@ -37,7 +37,7 @@ export const StocksContextProvider = (props) => {
                         if (i == action.payload.id) {
                             return {
                                 name: s.name,
-                                volume: s.vokume,
+                                volume: s.volume,
                                 price: s.price,
                                 max: s.max,
                                 min: s.min,

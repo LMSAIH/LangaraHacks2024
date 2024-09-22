@@ -103,6 +103,15 @@ body{
    }
 
 
+   .incomeError {
+    opacity: 0; /* Start as invisible */
+    transform: translateY(-20px); /* Start slightly above */
+    color: #E81B1B;
+    font-weight: bold;
+    animation: fadeInSlide 1s forwards; /* Apply animation */
+   }
+
+
    @keyframes myAnim {
 	0% {
 		animation-timing-function: ease-in;
@@ -145,4 +154,16 @@ body{
 		animation-timing-function: ease-out;
 		transform: translateY(0);
 	}
+}
+
+
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0; /* Start invisible */
+        transform: translateY(-20px); /* Start slightly above */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Original position */
+    }
 }

@@ -41,6 +41,8 @@ export const StocksContextProvider = (props) => {
                                 price: s.price,
                                 max: s.max,
                                 min: s.min,
+                                open: s.open,
+                                close: s.close,
                                 favorite: action.payload.favorite
                             }
                         } else return s;
@@ -64,31 +66,33 @@ export const StocksContextProvider = (props) => {
     }
 
     const [state, dispatch] = useReducer(stocksReducer, {
-        stocks: [{
-            name: "APPL",
-            volume: 100,
-            price: 101,
-            max: 102,
-            min: 99,
-            avorite: false
-        },
-        {
-            name: "SAMS",
-            volume: 200,
-            price: 201,
-            max: 202,
-            min: 199,
-            avorite: false
-        },
-        {
-            name: "NVID",
-            volume: 300,
-            price: 301,
-            max: 302,
-            min: 299,
-            avorite: false
-        },
-        ],
+        stocks:
+        // [{
+        //     name: "APPL",
+        //     volume: 100,
+        //     price: 101,
+        //     max: 102,
+        //     min: 99,
+        //     avorite: false
+        // },
+        // {
+        //     name: "SAMS",
+        //     volume: 200,
+        //     price: 201,
+        //     max: 202,
+        //     min: 199,
+        //     avorite: false
+        // },
+        // {
+        //     name: "NVID",
+        //     volume: 300,
+        //     price: 301,
+        //     max: 302,
+        //     min: 299,
+        //     avorite: false
+        // },
+        // ],
+        null,
         aiRecommend: [
             {
                 name: "Apple",

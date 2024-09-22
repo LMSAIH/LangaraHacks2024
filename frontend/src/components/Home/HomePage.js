@@ -50,7 +50,7 @@ export const HomePage = () => {
                         setIsActive1(!isActive1);
                     }}>Show stocks</button></div>
                 </div>
-                {isActive1 ? <AllStocksVisualizer stocks={stocks.filter((stocks) => stocks.amount!=0)} dispatch={dispatch} /> : null}
+                {(isActive1 && stocks)? <AllStocksVisualizer stocks={stocks.filter((stocks) => stocks.amount!=0)} dispatch={dispatch} /> : null}
                 <hr />
                 {aiRecommend && <RecommendationsVisualizer aiRecommend={aiRecommend} />}
             </div>

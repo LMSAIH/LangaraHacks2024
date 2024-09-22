@@ -15,6 +15,8 @@ export const StocksContextProvider = (props) => {
                             price: s.o,
                             max: s.h,
                             min: s.l,
+                            open: s.o,
+                            close: s.c,
                             favorite: false
                         }
                     })

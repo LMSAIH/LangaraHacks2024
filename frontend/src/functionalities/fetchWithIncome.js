@@ -81,6 +81,7 @@ export const fetchStocks = async (income, setStocks, setAiRecommend, token) => {
     )
     .then((response) => {
       const recommendedData = response.data.aibot;
+      console.log(recommendedData);
 
       const parseStocks = (data) => {
         // Split by any whitespace (spaces, newlines, tabs, etc.)

@@ -21,8 +21,8 @@ ChartJS.register(
 );
 
 const StockTrend = ({ stock }) => {
-  const open = stock.o;
-  const close = stock.c;
+  const open = stock.open;
+  const close = stock.close;
   const color = () => {
     if (open > close) {
       return "rgba(255,0,0,0.9)";

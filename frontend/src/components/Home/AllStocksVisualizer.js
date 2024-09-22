@@ -1,4 +1,6 @@
 
+import StockTrend from "../Graphs/StockTendGraph"
+
 export const AllStocksVisualizer = (props) => {
 
     return (
@@ -11,10 +13,10 @@ export const AllStocksVisualizer = (props) => {
                             {stock.name}
                         </div>
                         <div className="AllStocksAmount">
-                            {stock.price}$
+                            ${stock.price} per share
                         </div>
                         <div className="AllStocksVolume">
-                            {stock.volume} stocks
+                        ${stock.volume} in Volume
                         </div>
                         <div className="AllStocksSwitcher">
                             <input type="checkbox" checked={stock.favorite}
@@ -27,6 +29,7 @@ export const AllStocksVisualizer = (props) => {
                                     })
                                 }}></input>
                         </div>
+                        <StockTrend stock = {stock} />
                     </div>)
                 }
             </div>

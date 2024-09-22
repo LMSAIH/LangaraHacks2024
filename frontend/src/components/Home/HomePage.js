@@ -23,12 +23,12 @@ export const HomePage = () => {
         if (user) {
             fetchStocks(savings, setStocks, setAiRecommend, user.token);
         }
-    }, [user]);
+    }, [user,savings]);
 
     useEffect(() => {
         console.log(aiRecommend1);
         console.log(stocks1);
-        if (savings > 100 && user) {
+        if (savings > 100) {
             dispatch({ type: "SET_RECCOMENDATIONS", payload: aiRecommend1 });
             dispatch({ type: "SET_STOCKS", payload: stocks1 });
 
@@ -50,13 +50,9 @@ export const HomePage = () => {
                         setIsActive1(!isActive1);
                     }}>Show stocks</button></div>
                 </div>
-                {isActive1 ? <AllStocksVisualizer stocks={stocks} dispatch={dispatch} /> : null}
+                {isActive1 ? <AllStocksVisualizer stocks={stocks.filter((stocks) => stocks.amount!=0)} dispatch={dispatch} /> : null}
                 <hr />
                 {aiRecommend && <RecommendationsVisualizer aiRecommend={aiRecommend} />}
-            </div>
-            <div>
-                {stocks1 &&
-                    stocks1.map((stock) => <StockTrend stock={stock} key={stock.o} />)}
             </div>
         </div>
     );

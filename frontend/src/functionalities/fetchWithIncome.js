@@ -6,7 +6,7 @@ export const fetchStocks = async (income, setStocks, setAiRecommend, token) => {
   let finalStocks = [];
   await axios
     .get(
-      `https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/2023-09-21?adjusted=true&apiKey=xh41fiVsvvdpv14Ef1zbZerGM75xM5X1`
+      `https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/2023-09-22?adjusted=true&apiKey=xh41fiVsvvdpv14Ef1zbZerGM75xM5X1`
     )
     .then((unsortedStocks) => {
       let chosenStocks = [];
